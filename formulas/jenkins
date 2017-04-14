@@ -4,7 +4,8 @@ source "${BASH_SOURCE%/*}/../common"
 
 force_stop dock-jenkins
 
-run --detach \
+run --network=host \
+    --detach \
     --publish 8472:8080 \
     -v /var/jenkins/ jenkins
     --name dock-jenkins \
